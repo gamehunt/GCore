@@ -26,8 +26,6 @@ public class GLib {
 	public void preinit(FMLPreInitializationEvent e){
 		logger = e.getModLog();
 		logger.info("PreInit phase start");
-		RegistryHelper.preConstructClasses("gamehunt.glib.blocks");
-		RegistryHelper.preConstructClasses("gamehunt.glib.items");
 		proxy.preinit(e);
 		logger.info("PreInit phase end");
 	}
