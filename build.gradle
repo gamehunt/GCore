@@ -34,7 +34,12 @@ minecraft {
     mappings = "snapshot_20170624"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
-
+repositories { 
+    maven {
+        url "https://mvnrepository.com/artifact/org.reflections/reflections"
+        url "https://mvnrepository.com/artifact/com.google.guava/guava"
+    }
+}
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
@@ -44,7 +49,8 @@ dependencies {
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-	
+	compile 'org.reflections:reflections:0.9.11'
+	compile 'com.google.guava:guava:25.1-jre'
     // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
     //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
 
