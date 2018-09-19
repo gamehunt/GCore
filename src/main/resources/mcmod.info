@@ -1,0 +1,16 @@
+[
+{
+  "modid": "glib",
+  "name": "Glib",
+  "description": "Lib that i use",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Gamehunt"],
+  "credits": "\nThanks to Vazkii and his packet system\nTanks to GloomyFolken and his hooklib",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
