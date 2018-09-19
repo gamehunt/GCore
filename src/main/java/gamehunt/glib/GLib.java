@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 
-@Mod(modid = Constants.MODID,name = Constants.NAME,version = Constants.VERSION)
+@Mod(modid = Constants.MODID,name = Constants.NAME,version = Constants.VERSION,dependencies = Constants.DEPENDENCIES)
 public class GLib {
 	static Logger logger;
 	@Instance(owner = Constants.MODID)
