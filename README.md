@@ -1,2 +1,2 @@
-# GLib
+# GCore
 My mc modding lib
