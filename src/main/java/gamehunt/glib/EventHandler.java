@@ -2,7 +2,7 @@ package gamehunt.glib;
 
 import gamehunt.glib.blocks.BasicTileEntityHandler;
 import gamehunt.glib.blocks.BlocksRegistry;
-import gamehunt.glib.items.BasicMetaItem;
+import gamehunt.glib.items.IMetaHandler;
 import gamehunt.glib.items.ItemsRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -56,10 +56,11 @@ public class EventHandler {
 		//if(!noItemReg){
 			for(Item i : ItemsRegistry.getItemRegistry()){
 				if(i.getHasSubtypes()){
-					BasicMetaItem m = (BasicMetaItem) i;
+					//GLib.getModLog().info(i.getUnlocalizedName()+" has metadata");
+					IMetaHandler m = (IMetaHandler) i;
 					String[] vars = m.getVariants();
 					int iter = 0;
-				for(String name : vars){
+					for(String name : vars){
 						ModelLoader.setCustomModelResourceLocation(i, iter, new ModelResourceLocation(i.getRegistryName()+"_"+name, "inventory"));
 					}
 					continue;

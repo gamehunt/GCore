@@ -1,36 +1,33 @@
 package gamehunt.glib.items;
 
-import gamehunt.glib.GLib;
 import gamehunt.glib.utils.CreativeTabHandler;
 import gamehunt.glib.utils.CreativeTabHandler.TabType;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.util.NonNullList;
 
-public class BasicItem extends Item implements IMetaHandler{
-	
+public class BasicSword extends ItemSword implements IMetaHandler{
+
 	String[] variants;
 	String base_name;
 	
-	public BasicItem(String name,boolean stdCreativeTab,String[] variants){
+	public BasicSword(String name,boolean stdCreativeTab,ToolMaterial material,String[] variants) {
+		super(material);
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		if(CreativeTabHandler.getTabByType(TabType.ITEM) != null && stdCreativeTab){
+		if(stdCreativeTab && CreativeTabHandler.getTabByType(TabType.ITEM)!=null){
 			this.setCreativeTab(CreativeTabHandler.getTabByType(TabType.ITEM));
 		}
 		this.variants = variants;
-		//GLib.getModLog().info(variants.length);
 		if(variants.length > 1){
-			//GLib.getModLog().info("Item "+name+" has metadata");
 			setHasSubtypes(true);
 		}
 		base_name = name;
 		ItemsRegistry.register(this);
+		// TODO Auto-generated constructor stub
 	}
 	
-	
-
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
 		// TODO Auto-generated method stub
@@ -58,6 +55,5 @@ public class BasicItem extends Item implements IMetaHandler{
 		// TODO Auto-generated method stub
 		return variants;
 	}
-	
-	
+
 }

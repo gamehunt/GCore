@@ -1,35 +1,42 @@
 package gamehunt.glib.items;
 
-import gamehunt.glib.GLib;
+import java.util.Set;
+
 import gamehunt.glib.utils.CreativeTabHandler;
 import gamehunt.glib.utils.CreativeTabHandler.TabType;
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
 import net.minecraft.util.NonNullList;
 
-public class BasicItem extends Item implements IMetaHandler{
-	
+public class BasicTool extends ItemTool implements IMetaHandler{
 	String[] variants;
 	String base_name;
 	
-	public BasicItem(String name,boolean stdCreativeTab,String[] variants){
+	public BasicTool(String name,boolean stdCreativeTab,float attackDamageIn, float attackSpeedIn, ToolMaterial materialIn,Set<Block> effectiveBlocksIn,String[] variants) {
+		super(attackDamageIn, attackSpeedIn, materialIn, effectiveBlocksIn);
+		// TODO Auto-generated constructor stub
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
-		if(CreativeTabHandler.getTabByType(TabType.ITEM) != null && stdCreativeTab){
+		
+		if(stdCreativeTab && CreativeTabHandler.getTabByType(TabType.ITEM)!=null){
 			this.setCreativeTab(CreativeTabHandler.getTabByType(TabType.ITEM));
 		}
+		
 		this.variants = variants;
-		//GLib.getModLog().info(variants.length);
 		if(variants.length > 1){
-			//GLib.getModLog().info("Item "+name+" has metadata");
 			setHasSubtypes(true);
 		}
 		base_name = name;
 		ItemsRegistry.register(this);
 	}
-	
-	
+
+	@Override
+	public String[] getVariants() {
+		// TODO Auto-generated method stub
+		return variants;
+	}
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
@@ -45,19 +52,10 @@ public class BasicItem extends Item implements IMetaHandler{
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		if(tab == this.getCreativeTab()){
-			for(int i=0;i<variants.length;i++){
-				items.add(new ItemStack(this,1,i));
-			}
+		for(int i=0;i<variants.length;i++){
+			items.add(new ItemStack(this,1,i));
+		}
 		}
 	}
 
-
-
-	@Override
-	public String[] getVariants() {
-		// TODO Auto-generated method stub
-		return variants;
-	}
-	
-	
 }

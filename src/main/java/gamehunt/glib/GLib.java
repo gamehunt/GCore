@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 
-@Mod(modid = Constants.MODID,name = Constants.NAME,version = Constants.VERSION,dependencies = Constants.DEPENDENCIES)
+@Mod(modid = Constants.MODID,name = Constants.NAME,version = Constants.VERSION)
 public class GLib {
 	static Logger logger;
 	@Instance(owner = Constants.MODID)
