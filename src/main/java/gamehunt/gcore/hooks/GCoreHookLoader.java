@@ -5,7 +5,7 @@ import gamehunt.hooklib.minecraft.PrimaryClassTransformer;
 
 //Override this
 
-public abstract class GLibHookLoader extends HookLoader{
+public abstract class GCoreHookLoader extends HookLoader{
 	
 	
 	

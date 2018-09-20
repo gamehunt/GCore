@@ -3,6 +3,7 @@ package gamehunt.gcore;
 import org.apache.logging.log4j.Logger;
 
 import gamehunt.gcore.utils.RegistryHelper;
+import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
