@@ -1,7 +1,7 @@
 [
 {
-  "modid": "glib",
-  "name": "Glib",
+  "modid": "gcore",
+  "name": "GCore",
   "description": "Lib that i use",
   "version": "${version}",
   "mcversion": "${mcversion}",

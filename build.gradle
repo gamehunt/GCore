@@ -14,8 +14,8 @@ ext.configFile = file('build.properties')
 ext.config = parseConfig(configFile)
 
 version = config.version
-group = "gamehunt.glib" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "glib"
+group = "gamehunt.gcore" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "gcore"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
