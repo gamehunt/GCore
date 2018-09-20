@@ -27,6 +27,7 @@ public class EventHandler {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> e){
+		GCore.getModLog().info("Please, ignore warnings below - all's ok");
 		e.getRegistry().registerAll(BlocksRegistry.getBlockRegistry());
 		for(Block b : BlocksRegistry.getBlockRegistry()){
 			if(b.hasTileEntity(b.getDefaultState())){
@@ -37,6 +38,7 @@ public class EventHandler {
 	}
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> e){
+		GCore.getModLog().info("Please, ignore warnings below - all's ok");
 			for(Block b : BlocksRegistry.getBlockRegistry()){
 				e.getRegistry().register(new ItemBlock(b).setRegistryName(b.getRegistryName()));
 			}
