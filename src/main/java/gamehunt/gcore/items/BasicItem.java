@@ -18,6 +18,8 @@ public class BasicItem extends Item implements IMetaHandler{
 		this.setRegistryName(name);
 		if(CreativeTabHandler.getTabByType(TabType.ITEM) != null && stdCreativeTab){
 			this.setCreativeTab(CreativeTabHandler.getTabByType(TabType.ITEM));
+		}else if(stdCreativeTab && CreativeTabHandler.getTabByType(TabType.CUSTOM) != null){
+			this.setCreativeTab(CreativeTabHandler.getTabByType(TabType.CUSTOM));
 		}
 		this.variants = variants;
 		//GLib.getModLog().info(variants.length);

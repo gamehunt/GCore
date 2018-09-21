@@ -14,6 +14,8 @@ public class BasicBlock extends Block{
 		this.setRegistryName(name);
 		if(CreativeTabHandler.getTabByType(TabType.BLOCK) != null && stdCreativeTab){
 			this.setCreativeTab(CreativeTabHandler.getTabByType(TabType.BLOCK));
+		}else if(stdCreativeTab && CreativeTabHandler.getTabByType(TabType.CUSTOM) != null){
+			this.setCreativeTab(CreativeTabHandler.getTabByType(TabType.CUSTOM));
 		}
 		BlocksRegistry.register(this);
 		// TODO Auto-generated constructor stub

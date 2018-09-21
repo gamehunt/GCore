@@ -18,6 +18,8 @@ public class BasicSword extends ItemSword implements IMetaHandler{
 		this.setRegistryName(name);
 		if(stdCreativeTab && CreativeTabHandler.getTabByType(TabType.ITEM)!=null){
 			this.setCreativeTab(CreativeTabHandler.getTabByType(TabType.ITEM));
+		}else if(stdCreativeTab && CreativeTabHandler.getTabByType(TabType.CUSTOM) != null){
+			this.setCreativeTab(CreativeTabHandler.getTabByType(TabType.CUSTOM));
 		}
 		this.variants = variants;
 		if(variants.length > 1){

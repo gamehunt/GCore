@@ -22,6 +22,8 @@ public class BasicTool extends ItemTool implements IMetaHandler{
 		
 		if(stdCreativeTab && CreativeTabHandler.getTabByType(TabType.ITEM)!=null){
 			this.setCreativeTab(CreativeTabHandler.getTabByType(TabType.ITEM));
+		}else if(stdCreativeTab && CreativeTabHandler.getTabByType(TabType.CUSTOM) != null){
+			this.setCreativeTab(CreativeTabHandler.getTabByType(TabType.CUSTOM));
 		}
 		
 		this.variants = variants;
