@@ -47,8 +47,12 @@ public class BasicItem extends Item implements IMetaHandler{
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		if(tab == this.getCreativeTab()){
-			for(int i=0;i<variants.length;i++){
-				items.add(new ItemStack(this,1,i));
+			if(variants.length != 0){
+				for(int i=0;i<variants.length;i++){
+					items.add(new ItemStack(this,1,i));
+				}
+			}else{
+				items.add(new ItemStack(this,1));
 			}
 		}
 	}
