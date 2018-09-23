@@ -64,6 +64,7 @@ public class EventHandler {
 					int iter = 0;
 					for(String name : vars){
 						ModelLoader.setCustomModelResourceLocation(i, iter, new ModelResourceLocation(i.getRegistryName()+"_"+name, "inventory"));
+						iter++;
 					}
 					continue;
 				}
