@@ -1,6 +1,8 @@
 package gamehunt.gcore.tile;
 
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public class BaseTileEntity extends TileEntity{
@@ -29,5 +31,19 @@ public class BaseTileEntity extends TileEntity{
 		// TODO Auto-generated method stub
 		readFromNBT(tag);
 	}
+
+	@Override
+	public SPacketUpdateTileEntity getUpdatePacket() {
+		// TODO Auto-generated method stub
+		return new SPacketUpdateTileEntity(pos,0,writeToNBT(new NBTTagCompound()));
+	}
+
+	@Override
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+		super.onDataPacket(net, pkt);
+		readFromNBT(pkt.getNbtCompound());
+	}
+	
+	
 
 }
