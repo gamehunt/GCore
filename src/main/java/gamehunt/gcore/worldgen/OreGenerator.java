@@ -41,7 +41,7 @@ public class OreGenerator implements IWorldGenerator{
 				int x = chunkX * 16 + random.nextInt(16);
 	            int y = min + random.nextInt(diff);
 	            int z = chunkZ * 16 + random.nextInt(16);
-	            GCore.getModLog().info("Generating at: "+x+" "+y+" "+z);
+	           // GCore.getModLog().info("Generating at: "+x+" "+y+" "+z);
 				if(ore.getDimension() == world.provider.getDimension()){
 					if(ore.getPredicate() == null){
 						generator = new WorldGenMinable(ore.getDefaultState(),RandomUtils.nextInt(minVein, maxVein+1));

@@ -21,9 +21,7 @@ public class BaseTileEntity extends TileEntity{
 
 	@Override
 	public NBTTagCompound getUpdateTag() {
-		// TODO Auto-generated method stub
-		NBTTagCompound nbt = new NBTTagCompound();
-		return writeToNBT(nbt);
+		return writeToNBT(new NBTTagCompound());
 	}
 
 	@Override
@@ -35,7 +33,7 @@ public class BaseTileEntity extends TileEntity{
 	@Override
 	public SPacketUpdateTileEntity getUpdatePacket() {
 		// TODO Auto-generated method stub
-		return new SPacketUpdateTileEntity(pos,0,writeToNBT(new NBTTagCompound()));
+		return new SPacketUpdateTileEntity(pos,this.getBlockMetadata(),writeToNBT(new NBTTagCompound()));
 	}
 
 	@Override

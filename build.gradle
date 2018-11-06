@@ -80,4 +80,5 @@ def parseConfig(File config) {
     }
 }
 
+
 defaultTasks 'clean', 'build', 'incrementBuildNumber'
