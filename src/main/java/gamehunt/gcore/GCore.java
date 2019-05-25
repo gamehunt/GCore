@@ -2,7 +2,7 @@ package gamehunt.gcore;
 
 import org.apache.logging.log4j.Logger;
 
-import gamehunt.gcore.test.TestMasterBlock;
+import gamehunt.gcore.utils.RegistryHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -24,9 +24,11 @@ public class GCore {
 	}
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent e){
-		//final TestMasterBlock b = new TestMasterBlock();
 		logger = e.getModLog();
 		logger.info("PreInit phase start");
+		if(Constants.TEST_CODE){
+			RegistryHelper.preConstructClasses("gamehunt.gcore.test");
+		}
 		proxy.preinit(e);
 		logger.info("PreInit phase end");
 	}
