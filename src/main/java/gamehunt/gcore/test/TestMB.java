@@ -84,6 +84,9 @@ public class TestMB implements IMultiblock{
 			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		// TODO Auto-generated method stub
 		GCore.getModLog().info("Clicked");
+		if(!worldIn.isRemote){
+			playerIn.openGui(GCore.instance, 0, worldIn, pos.getX(), pos.getY(),pos.getZ());
+		}
 		return true;
 	}
 

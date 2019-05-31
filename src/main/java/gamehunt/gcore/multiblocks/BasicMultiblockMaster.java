@@ -33,7 +33,6 @@ public abstract class BasicMultiblockMaster<T extends  BasicMultiblockMasterTE> 
 				return mb.onStructureClicked(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
 			}else if(te.isActivated()){
 				te.setActivated(worldIn, pos, false);
-				te.markDirty();
 			}else if(mb.getActivationItem() == null || playerIn.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(mb.getActivationItem())){
 				if(MultiblockChecker.checkAt(worldIn, pos, true)){
 					return this.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);

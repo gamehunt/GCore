@@ -24,7 +24,7 @@ public class MultiblockChecker {
 	}
 
 	public static boolean checkAt(World w,BlockPos p,boolean activate){
-			//if(!w.isRemote){
+			if(!w.isRemote){
 				if(w.getTileEntity(p)!= null && w.getTileEntity(p) instanceof BasicMultiblockMasterTE){
 					BasicMultiblockMasterTE e = (BasicMultiblockMasterTE) w.getTileEntity(p);
 					IMultiblock m = e.getMultiblock();
@@ -77,11 +77,11 @@ public class MultiblockChecker {
 					}
 					if(activate){
 						e.setActivated(w, p, true);
-						e.markDirty();
+						
 					}
 					return true;
 				}
-			//}
+			}
 			return false;
 		}
 	

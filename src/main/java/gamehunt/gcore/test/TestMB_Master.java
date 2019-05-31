@@ -25,5 +25,7 @@ public class TestMB_Master extends BasicMultiblockMaster<TestMB_MasterTE>{
 		// TODO Auto-generated method stub
 		return new TestMB_MasterTE();
 	}
+	
+	
 
 }
