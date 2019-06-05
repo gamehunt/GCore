@@ -32,7 +32,7 @@ public class EventHandler {
 		for(Block b : BlocksRegistry.getBlockRegistry()){
 			if(b.hasTileEntity(b.getDefaultState())){
 				BasicTileEntityHandler tb = (BasicTileEntityHandler) b;
-				GameRegistry.registerTileEntity(tb.getTileEntityClass(), tb.getRegistryName().toString());
+				GameRegistry.registerTileEntity(tb.getTileEntityClass(), tb.getRegistryName());
 			}
 		}
 	}
