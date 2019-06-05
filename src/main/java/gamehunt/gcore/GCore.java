@@ -1,7 +1,10 @@
 package gamehunt.gcore;
 
+
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 
+import gamehunt.gcore.utils.LogWrapper;
 import gamehunt.gcore.utils.RegistryHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -14,36 +17,36 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = Constants.MODID,name = Constants.NAME,version = Constants.VERSION)
 public class GCore {
-	static Logger logger;
+	static LogWrapper logger;
 	@Instance(owner = Constants.MODID)
 	public static GCore instance = null;
 	@SidedProxy(serverSide = Constants.COMMON_PROXY,clientSide = Constants.CLIENT_PROXY)
 	public static CommonProxy proxy = null;
-	public static Logger getModLog(){
+	public static LogWrapper getModLog(){
 		return logger;
 	}
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent e){
-		logger = e.getModLog();
-		logger.info("PreInit phase start");
-		if(Constants.TEST_CODE){
+		logger = new LogWrapper(e.getModLog());
+		logger.message(Level.INFO,"PreInit phase start");
+		if(ConfigHandler.generateTestCode){
 			RegistryHelper.preConstructClasses("gamehunt.gcore.test");
 		}
 		proxy.preinit(e);
-		logger.info("PreInit phase end");
+		logger.message(Level.INFO,"PreInit phase end");
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent e){
-		logger.info("Init phase start");
+		logger.message(Level.INFO,"Init phase start");
 		proxy.init(e);
-		logger.info("Init phase end");
+		logger.message(Level.INFO,"Init phase end");
 	}
 	
 	@EventHandler
 	public void postinit(FMLPostInitializationEvent e){
-		logger.info("PostInit phase start");
+		logger.message(Level.INFO,"PostInit phase start");
 		proxy.postinit(e);
-		logger.info("PostInit phase end");
+		logger.message(Level.INFO,"PostInit phase end");
 	}
 }

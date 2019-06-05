@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.Level;
+
 import gamehunt.gcore.GCore;
 import gamehunt.gcore.gui.BasicButton;
 import gamehunt.gcore.gui.BasicGuiScreen;
@@ -176,11 +178,11 @@ public class TutorialBookGuiScreen extends BasicGuiScreen{
 				GuiInventory.drawEntityOnScreen(x+Integer.valueOf(args[4]), y+Integer.valueOf(args[5]), Integer.valueOf(args[3]),-mx+x, -my+y,(EntityLivingBase) EntityList.createEntityByIDFromName(l, this.mc.world));					
 				return Pair.make_pair(x+Integer.valueOf(args[4]), y+Integer.valueOf(args[5]));
 			}else{
-				GCore.getModLog().error("Unsupported model type: "+args[1]);
+				GCore.getModLog().message(Level.ERROR,"Unsupported model type: "+args[1]);
 				return Pair.make_pair(x, y);
 			}
 			if(it == null){
-				GCore.getModLog().error("Can't find model for "+args[1]);
+				GCore.getModLog().message(Level.ERROR,"Can't find model for "+args[1]);
 				return Pair.make_pair(x, y);
 			}
 			GlStateManager.pushMatrix();
@@ -193,7 +195,7 @@ public class TutorialBookGuiScreen extends BasicGuiScreen{
 			RenderHelper.enableStandardItemLighting();
 			GlStateManager.popMatrix();
 		}else if(args[0].equals("multiblock")){
-			GCore.getModLog().warn("Multiblock tag is unsupported yet");
+			GCore.getModLog().message(Level.WARN,"Multiblock tag is unsupported yet");
 		}else if(args[0].equals("link")){
 			int link = Integer.valueOf(args[2]);
 			this.addButton(new TutorialBookLinkButton(this,link, x, y, args[1], 0, 0xffa500));

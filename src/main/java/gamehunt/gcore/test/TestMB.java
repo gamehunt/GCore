@@ -2,6 +2,8 @@ package gamehunt.gcore.test;
 
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.Level;
+
 import gamehunt.gcore.GCore;
 import gamehunt.gcore.blocks.BlocksRegistry;
 import gamehunt.gcore.multiblocks.IBlockFilter;
@@ -68,13 +70,13 @@ public class TestMB implements IMultiblock{
 	@Override
 	public boolean onStructureActivated(World worldIn, BlockPos pos) {
 		// TODO Auto-generated method stub
-		GCore.getModLog().info("Formed");
+		GCore.getModLog().leveledMessage(Level.INFO,"Formed",2);
 		return false;
 	}
 
 	@Override
 	public boolean onStructureDestroyed(World worldIn, BlockPos pos) {
-		GCore.getModLog().info("Destroyed");
+		GCore.getModLog().leveledMessage(Level.INFO,"Destroyed",2);
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -83,7 +85,7 @@ public class TestMB implements IMultiblock{
 	public boolean onStructureClicked(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
 			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		// TODO Auto-generated method stub
-		GCore.getModLog().info("Clicked");
+		GCore.getModLog().leveledMessage(Level.INFO,"Clicked",2);
 		if(!worldIn.isRemote){
 			playerIn.openGui(GCore.instance, 0, worldIn, pos.getX(), pos.getY(),pos.getZ());
 		}

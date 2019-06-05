@@ -1,5 +1,7 @@
 package gamehunt.gcore.network;
 
+import org.apache.logging.log4j.Level;
+
 import gamehunt.gcore.Constants;
 import gamehunt.gcore.GCore;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -13,7 +15,7 @@ public class NetworkHandler {
 
 	@SuppressWarnings("unchecked")
 	public static void register(@SuppressWarnings("rawtypes") Class clazz, Side handlerSide) {
-		GCore.getModLog().info("Registered "+handlerSide.name().toLowerCase()+" side packet: "+clazz.getSimpleName());
+		GCore.getModLog().leveledMessage(Level.INFO,"Registered "+handlerSide.name().toLowerCase()+" side packet: "+clazz.getSimpleName(),1);
 		INSTANCE.registerMessage(clazz, clazz, id++, handlerSide);
 	}
 }

@@ -2,6 +2,8 @@ package gamehunt.gcore.multiblocks;
 
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.Level;
+
 import gamehunt.gcore.GCore;
 import gamehunt.gcore.utils.Pair;
 import net.minecraft.util.EnumFacing;
@@ -29,7 +31,7 @@ public class MultiblockChecker {
 					for(int i=0;i<pat.length;i++){
 						for(int j=0;j<pat.length;j++){
 							if(pat[i].length != pat[i][j].length){
-								GCore.getModLog().error("Multiblock"+m.getName()+"has invalid pattern!");
+								GCore.getModLog().message(Level.ERROR,"Multiblock"+m.getName()+"has invalid pattern!");
 								return false;
 							}
 						}
