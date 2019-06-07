@@ -16,13 +16,13 @@ public class LogWrapper {
 	}
 	
 	public void message(Level info,String string){
-		if(ConfigHandler.log_level != -1){
+		if(ConfigHandler.general.log_level != -1){
 			l.log(info,string);
 		}
 	}
 	
 	public void leveledMessage(Level ml,String message, int level){
-		if(level <= ConfigHandler.log_level && level >= 0){
+		if(level <= ConfigHandler.general.log_level && level >= 0){
 			l.log(ml,message);
 		}
 	}

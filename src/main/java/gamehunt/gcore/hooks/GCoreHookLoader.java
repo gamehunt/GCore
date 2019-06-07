@@ -1,7 +1,7 @@
 package gamehunt.gcore.hooks;
 
-import gamehunt.hooklib.minecraft.HookLoader;
-import gamehunt.hooklib.minecraft.PrimaryClassTransformer;
+import gloomyfolken.hooklib.minecraft.HookLoader;
+import gloomyfolken.hooklib.minecraft.PrimaryClassTransformer;
 
 //Override this
 

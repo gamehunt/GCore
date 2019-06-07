@@ -29,7 +29,7 @@ public class GCore {
 	public void preinit(FMLPreInitializationEvent e){
 		logger = new LogWrapper(e.getModLog());
 		logger.message(Level.INFO,"PreInit phase start");
-		if(ConfigHandler.generateTestCode){
+		if(ConfigHandler.general.executeTestCode){
 			RegistryHelper.preConstructClasses("gamehunt.gcore.test");
 		}
 		proxy.preinit(e);
