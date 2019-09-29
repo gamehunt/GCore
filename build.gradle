@@ -1,17 +1,14 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        maven { url = "https://files.minecraftforge.net/maven" }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
-
-
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-
 ext.configFile = file('build.properties')
 ext.config = parseConfig(configFile)
 
@@ -25,17 +22,24 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12-14.21.1.2387"
+    version = "1.12.2-14.23.5.2847"
     runDir = "run"
-    mappings = "snapshot_20170624" 
+    
+    // the mappings can be changed at any time, and must be in the following format.
+    // snapshot_YYYYMMDD   snapshot are built nightly.
+    // stable_#            stables are built at the discretion of the MCP team.
+    // Use non-default mappings at your own risk. they may not always work.
+    // simply re-run your setup task after changing the mappings to update your workspace.
+    mappings = "snapshot_20171003"
+    
     replace 'GRADLE:BUILD', config.build
     replace 'GRADLE:VERSION', config.version
-
     replaceIn 'Constants.java' 
-    
+    makeObfSourceJar = false 
     useDepAts = true
-    makeObfSourceJar = false
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
+
 repositories { 
     maven {
         url "https://mvnrepository.com/artifact/org.reflections/reflections"
@@ -43,10 +47,8 @@ repositories {
     }
 }
 dependencies {
-
 	compile 'org.reflections:reflections:0.9.11'
 	compile 'com.google.guava:guava:21.0'
-
 
 }
 task incrementBuildNumber(dependsOn: 'reobfJar') << {
@@ -73,7 +75,6 @@ processResources {
         exclude 'mcmod.info'
     }
 }
-
 def parseConfig(File config) {
     config.withReader {
         def prop = new Properties()
